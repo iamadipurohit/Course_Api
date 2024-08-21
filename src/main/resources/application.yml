@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+       database: COURSES
+       host: javatechiemongodb
+       port: 27017

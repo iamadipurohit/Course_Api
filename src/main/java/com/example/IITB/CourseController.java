@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CourseController {
 
     @Autowired
@@ -31,6 +32,8 @@ public class CourseController {
     // POST /api/courses - Create a new course
     @PostMapping("/courses")
     public ResponseEntity<Course> createCourse(@RequestBody Course course) {
+        System.out.println("Hello mitr");
+        System.out.println(course.getTitle()+" "+course.getCourseCode()+" "+course.getDescription());
         Course savedCourse = courseRepository.save(course);
         return new ResponseEntity<>(savedCourse, HttpStatus.CREATED);
     }
@@ -38,6 +41,7 @@ public class CourseController {
     // GET /api/courses - List of all courses available
     @GetMapping("/courses")
     public List<Course> getAllCourses() {
+        System.out.println("Hello bhai");
         return courseRepository.findAll();
     }
 
